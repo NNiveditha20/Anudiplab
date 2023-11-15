@@ -1,0 +1,53 @@
+package anudip;
+
+public class Book {
+	
+	private int bkid;
+	private String bktitle;
+	private String authorName;
+	
+	@Override
+	public String toString() {
+		return "Book [bkid=" + bkid + ", bktitle=" + bktitle + ", authorName=" + authorName + "]";
+	}
+
+	public Book() {
+		super();
+		
+	}
+
+	public int getBkid() {
+		return bkid;
+	}
+
+	public String getBktitle() {
+		return bktitle;
+	}
+
+	public String authorName() {
+		return authorName;
+	}
+
+	public void setBkid(int bkid) {
+		this.bkid = bkid;
+	}
+
+	public void setBktitle(String bktitle) {
+		this.bktitle = bktitle;
+	}
+
+	public void setauthorName(String authorName) {
+		this.authorName = authorName;
+	}
+
+	public Book(int bkid, String bktitle, String authorName) {
+		super();
+		this.bkid = bkid;
+		this.bktitle = bktitle;
+		this.authorName = authorName;
+	}
+	
+	
+
+
+}
