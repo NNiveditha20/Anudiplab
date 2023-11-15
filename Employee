@@ -1,15 +1,21 @@
+package anudip;
 
-//Assignment 2 for creating employee class
-class Employee
-{
- // declaring member variables
- protected int id,age;
- protected boolean isPermanent;
- // message from main method
- public static void main(String[] args)
- { 
- // initiazing age
- int age=35.5;
- System.out.println("Successfully started");
- }
+public class Employee {
+
+	// declaring member variables
+	
+	 protected int id,age;
+	 protected boolean isPermanent;
+	 
+	 // message from main method
+	 
+	 public static void main(String[] args) { 
+		 
+	 // initiazing age
+		 
+	 int age=(int) 35.5;
+	 System.out.println("Successfully started");
+	 
+	 }
+	 
 }
