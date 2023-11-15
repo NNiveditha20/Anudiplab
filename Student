@@ -1,0 +1,13 @@
+
+// Assignment 1 for creating a student class
+class Student
+{
+ //declaring member variables
+ private String studentName,collegeName;
+ private int studentId; 
+ // message from main method
+ public static void main(String[] args)
+ {
+ System.out.println("Successfull");
+ }
+}
