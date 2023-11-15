@@ -1,0 +1,50 @@
+package anudip;
+
+ public class Rectangle {
+	 
+ //data members
+	 
+ int length;
+ int width;
+ int area;
+ 
+ //constructor
+ 
+ Rectangle(int l,int w) {
+	 
+length=l;
+width=w;
+
+ }
+ void findarea() {
+	 
+area=length*width;
+
+ }
+ 
+public static void main(String[] args) {
+	
+Rectangle r1,r2;
+
+//Initializing two rectangle objects with random values
+
+r1=new Rectangle(10,5);
+r2=new Rectangle(10,5);
+
+r1.findarea();
+r2.findarea();
+
+//compare the areas using relational operators
+
+if(r1.area>r2.area)
+System.out.println("Rectangle1>Rectangle2");
+
+else if(r1.area<r2.area)
+System.out.println("Rectangle1<Rectangle2");
+
+else
+System.out.println("they are equal");
+
+}
+ }
+ 
