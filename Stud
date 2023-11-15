@@ -1,0 +1,66 @@
+package anudip;
+
+import java.util.Scanner;
+
+public class Stud  {
+	
+ private int idno;
+ private String name;
+ private String course;
+ private double average;
+ 
+ // Constructor to initialize the student 
+
+ public Stud(int idno, String name, String course, double average)  {
+	 
+ this.idno = idno;
+ this.name = name;
+ this.course = course;
+ this.average = average;
+ 
+ }
+ 
+ // Method to read student data from the user
+ 
+ public void readStudentData() {
+	 
+ Scanner scanner = new Scanner(System.in);
+ 
+ System.out.print("Enter Student ID: ");
+ idno = scanner.nextInt();
+ scanner.nextLine(); 
+ 
+ System.out.print("Enter Student Name: ");
+ name = scanner.nextLine();
+ 
+ System.out.print("Enter Course: ");
+ course = scanner.nextLine();
+ 
+ System.out.print("Enter Average: ");
+ average = scanner.nextDouble();
+ 
+ }
+ 
+ // Method to display student data
+ 
+ public void displayStudentData() {
+	 
+ System.out.println("Student ID: " + idno);
+ System.out.println("Name: " + name);
+ System.out.println("Course: " + course);
+ System.out.println("Average: " + average);
+ 
+ }
+ 
+ public static void main(String[] args) {
+	 
+ Stud student = new Stud(0, "", "", 0.0); // Create a student object
+ 
+ System.out.println("Enter student details ");
+ student.readStudentData(); // Read student data from the user
+ 
+ System.out.println("\nStudent Details:");
+ student.displayStudentData(); // Display the student data
+ 
+ }
+}
