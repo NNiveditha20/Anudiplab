@@ -18,6 +18,15 @@ public class HotPotatoGame
         Queue<String> playersQueue = new LinkedList<>();
         String[] playerNames = {"Alice", "Bob", "Charlie", "David", "Eve"};
 
+        //Display the elements of the set
+		
+          System.out.print("Player Names are  :");
+        
+              for(String s: playerNames)
+        	   System.out.print(s+", ");
+        
+               System.out.println();
+
         // Enqueue player names to create the initial circle
         
         for (String playerName : playerNames)
