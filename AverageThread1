@@ -1,0 +1,17 @@
+package anudip;
+public class AverageThread1 {
+
+public static void main(String[] args) {
+int[] arr = {1, 20, 50, 15, 30};
+
+// Create the AverageThread
+AverageThread averageThread = new AverageThread(arr);
+
+// Create the SquareThread
+SquareThread squareThread = new SquareThread(arr);
+
+// Start the threads
+averageThread.start();
+squareThread.start();
+}
+}
