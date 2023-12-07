@@ -1,0 +1,10 @@
+/* create a multi threading program to display the given name with welcome message
+   display greeting for available users. store 5 names using array of string, pass the string to the methods to display greeting
+   message. create 2 threads to perform the above task. */
+
+package anudip;
+public class Display {
+public void display(String name) {
+System.out.println("Welcome to Multithreading "+ name);
+}
+}
