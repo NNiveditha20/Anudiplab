@@ -1,0 +1,35 @@
+package Project;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+public class CalculatorTest {
+
+@Test
+public void testMethod()
+{
+Calculator calc = new Calculator();
+assertEquals(calc.add(10, 8), 18);
+}
+
+@Test
+public void testMethod1()
+{
+Calculator calc=new Calculator();
+assertEquals(calc.sub(20, 17), 3);
+}
+
+@Test
+public void testMethod2()
+ {  
+ Calculator calcu=new Calculator();
+ assertEquals(calcu.mul(0, 9), 0); 
+ }
+
+@Test 
+public void testMethod3() 
+{
+Calculator calcul=new Calculator(); 
+assertEquals(calcul.div(20, 5), 4); 
+}
+}
+
+@Test public void testMethod3() {Calculator calcul=new Calculator(); assertEquals(calcul.div(20, 5), 4); }}
