@@ -1,0 +1,52 @@
+/* Create a new class Employee 
+ * Add member variables: id and age of type int, name of type String and isPermanent of type boolean
+ * Now assign values 35.5 to age; See the error message.
+ * How can you avoid this error? Correct the error by casting. 
+ * Make all the members protected 
+ * Add a main method to it. Print message “Successfully started”. 
+ * Compile the class.
+ */
+
+Code 1:
+
+
+// creating employee class
+class Employee
+{
+
+ // declaring member variables
+ protected int id,age;
+ protected boolean isPermanent;
+
+ // message from main method
+ public static void main(String[] args)
+ { 
+
+ // initiazing age
+ int age=35.5;
+ System.out.println("Successfully started");
+ }
+}
+
+
+Code 2:
+
+
+// creating employee class
+class Employee
+{
+
+ // declaring member variables
+ protected int id;
+ protected double age;
+ protected boolean isPermanent;
+
+ // message from main method
+ public static void main(String[] args)
+ { 
+
+ // initiazing age
+ double age=35.5;
+ System.out.println("Successfully started");
+ }
+}
