@@ -1,0 +1,22 @@
+/* Create a class Student in Student.java then add member variables studentName, collegeName of type String
+ * Add a member variable studentID of type int.
+ * Make all the member variables as private.
+ * Add a main method. And print a message “Successful”. 
+ * Compile the class 
+ * Run the class
+*/ 
+
+// creating a student class
+class Student
+{
+
+ //declaring member variables
+ private String studentName,collegeName;
+ private int studentId; 
+
+ // message from main method
+ public static void main(String[] args)
+ {
+ System.out.println("Successfull");
+ }
+}
