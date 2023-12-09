@@ -1,0 +1,52 @@
+/* Write a program which calculates the monthly bill amount for a internet subscriber based on the following logic:
+    1) If the total data consumed is less than 10 GB then bill amount will be Rs. 300. (Basic charge)
+    2) If the data consumed is between 10 GB and 30 GB then bill amount will be basic charge + 5* (Total GB consumed - 10).
+       That means consumers will be charged Rs 5 for each additional GB consumed over 10 GB.
+    3) If the consumer consumes more than 30 GB then The bill amount = 400 + 3 *(Total GB consumed - 30).
+       That means the consumer has to pay additional Rs 3 for each GB above 30GB.
+    Use if-else block to solve the problem
+*/
+
+package anudip;
+
+import java.util.Scanner;
+
+public class Bills {
+
+	 public static void main(String[] args) 
+	 {
+		 
+	 // Create a Scanner object for user input
+	 Scanner scanner = new Scanner(System.in);
+	 System.out.print("Enter the total data consumed in GB: ");
+	 double totalDataConsumed = scanner.nextDouble();
+	 
+	 // Declare a variable to store the bill amount
+	 double billAmount; 
+	 
+	 // Check if the total data consumed is less than 10 GB
+	 if (totalDataConsumed < 10)
+	 {
+	 billAmount = 300.0;
+	 } 
+	 
+	 // Check if the data consumed is between 10 GB and 30 GB
+	 else if (totalDataConsumed >= 10 && totalDataConsumed <= 30)
+	 {
+	 billAmount = 300.0 + 5.0 * (totalDataConsumed - 10);
+	 } 
+	 
+	 // If the consumer consumes more than 30 GB
+	 else 
+	 { 
+	 billAmount = 400.0 + 3.0 * (totalDataConsumed - 30);
+	 }
+	 
+	 // Display the calculated monthly bill amount
+	 System.out.println("Monthly Bill Amount: Rs. " + billAmount);
+	 
+	 // Close the Scanner
+	 scanner.close();
+	 }
+
+}
