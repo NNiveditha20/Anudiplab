@@ -1,0 +1,55 @@
+/*
+Write a program to count and print the total number of odd and even numbers from user inputs. Program will ask for user inputs in a loop.
+*/
+
+package anudip;
+
+import java.util.Scanner;
+
+public class CountOddEvenNumbers  {
+	
+public static void main(String[] args)  {
+	
+Scanner sc = new Scanner(System.in);
+
+int oddCount = 0;
+int evenCount = 0;
+
+// Loop to get user inputs
+
+while (true)
+{
+	
+System.out.println("Enter a number: ");
+int number = sc.nextInt();
+
+// Check if the number is odd or even
+
+if (number % 2 == 0)
+{
+evenCount++;
+}
+
+else 
+{
+oddCount++;
+}
+
+// Check if the user wants to continue
+
+System.out.println("Do you want to continue? (y/n)");
+String choice = sc.next();
+
+if (choice.equalsIgnoreCase("n"))
+{
+break;
+}
+}
+
+// Print the total number of odd and even numbers
+
+System.out.println("Total number of odd numbers: " + oddCount);
+System.out.println("Total number of even numbers: " + evenCount);
+
+}
+}
