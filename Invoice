@@ -1,0 +1,85 @@
+/* • Define a class Invoice with the following datamebers and methods
+    i. invoiceId : inv1
+    ii. invoicePrice : 2300.50
+    iii. vendorName : vendor1
+    iv. invoiceName : abc ltd.
+    v. location : Pune
+   • add a default constructor
+   • define follwing methods 
+   • addInvoice() - read from user
+   • displayInvoice() - display all datamebers
+   • create array objects to store 'n' no. of invoice
+*/
+
+package anudip;
+
+import java.util.*;
+
+public class Invoice {
+	
+	int id;
+	 Float price;
+	 String vendorName, invoiceName, location;
+	 
+	 // Default constructor
+	 
+	 public Invoice() {
+	 }
+	 
+	 public void addInvoice() {
+		 
+	 Scanner sc = new Scanner(System.in);
+	 
+	 System.out.println("Enter Invoice id: ");
+	 id = sc.nextInt();
+	 
+	 System.out.println("Enter Invoice price: ");
+	 price = sc.nextFloat();
+	 
+	 System.out.println("Enter vendor name: ");
+	 vendorName = sc.next();
+	 
+	 System.out.println("Enter Invoice name: ");
+	 invoiceName = sc.next();
+	 
+	 System.out.println("Enter location: ");
+	 location = sc.next();
+	 
+	 }
+	 
+	 public void displayInvoice() {
+		 
+	 System.out.println("Invoice ID: " + id);
+	 System.out.println("Invoice Price: " + price);
+	 System.out.println("Vendor Name: " + vendorName);
+	 System.out.println("Invoice Name: " + invoiceName);
+	 System.out.println("Location: " + location);
+	 
+	 }
+	 public static void main(String[] args) {
+		 
+	 Scanner sc = new Scanner(System.in);
+	 
+	 System.out.print("Enter the number of invoices to create: ");
+	 int n = sc.nextInt();
+	 sc.nextLine();
+	 
+	 Invoice[] invoices = new Invoice[n];
+	 
+	 for (int i = 0; i < n; i++) {
+		 
+	 System.out.println("Enter details for Invoice " + (i + 1));
+	 
+	 invoices[i] = new Invoice();
+	 invoices[i].addInvoice();
+	 
+	 }
+	 
+	 for (int i = 0; i < n; i++) {
+		 
+	 invoices[i].displayInvoice();
+	 
+	 }
+	 }
+
+}
