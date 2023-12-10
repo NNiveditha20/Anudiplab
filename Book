@@ -1,0 +1,94 @@
+/* Create a Book class with bookId, bookName and authorName. 
+   Create parameterized constructor to initialize the object. 
+   Create an ArrayList of type Book and store all book objects into collections and display all bookdetails. 
+   [Hint:Use advanced for loop to display all Books.
+*/
+
+Code 1:
+
+package anudip;
+
+public class Book {
+	
+	private int bkid;
+	private String bktitle;
+	private String authorName;
+	
+	@Override
+	public String toString() {
+		return "Book [bkid=" + bkid + ", bktitle=" + bktitle + ", authorName=" + authorName + "]";
+	}
+
+	public Book() {
+		super();
+		
+	}
+
+	public int getBkid() {
+		return bkid;
+	}
+
+	public String getBktitle() {
+		return bktitle;
+	}
+
+	public String authorName() {
+		return authorName;
+	}
+
+	public void setBkid(int bkid) {
+		this.bkid = bkid;
+	}
+
+	public void setBktitle(String bktitle) {
+		this.bktitle = bktitle;
+	}
+
+	public void setauthorName(String authorName) {
+		this.authorName = authorName;
+	}
+
+	public Book(int bkid, String bktitle, String authorName) {
+		super();
+		this.bkid = bkid;
+		this.bktitle = bktitle;
+		this.authorName = authorName;
+	}
+}
+
+Code 2:
+
+package anudip;
+
+import java.util.*;
+
+public class ArrList_Books {
+	
+	public static void main(String[] args) {
+
+		ArrayList<Book> al = new ArrayList<Book>();
+		
+		Book obj1 = new Book(1, "Wuthering Heights","  Emily Brontë");
+		Book obj2 = new Book(2, "Nineteen Eighty-Four" ," George Orwell");
+		Book obj3 = new Book(3, "Great Expectations"," Charles Dickens");
+		
+		al.add(obj1);
+		al.add(obj2);
+		al.add(obj3);
+		
+		//for each loop
+		
+		for(Book b : al)
+			System.out.println(b);
+		
+		System.out.println("  ");
+		
+		Iterator it = al.iterator();
+		
+		//using iterator
+		
+		while(it.hasNext())
+			System.out.println(it.next());
+		}
+
+}
