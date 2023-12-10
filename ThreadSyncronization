@@ -1,0 +1,77 @@
+/*
+   Write a java program to implement synchronized block in a thread process. create 2 threads to achieve thread synchronization. use join(), notify().
+ */
+
+Code 1:
+
+package anudip;
+
+public class SharedResource {
+	
+	    private int count = 0;
+
+	    // Synchronized method to increment count
+	    public synchronized void increment() {
+	        count++;
+	    }
+
+	    // Synchronized method to get the current count
+	    public synchronized int getCount() {
+	        return count;
+	    }
+	}
+
+	class MyThread extends Thread {
+	    private SharedResource sharedResource;
+
+	    public MyThread(SharedResource sharedResource) {
+	        this.sharedResource = sharedResource;
+	    }
+
+	    @Override
+	    public void run() {
+	        // Synchronized block to ensure thread safety
+	        synchronized (sharedResource) {
+	            for (int i = 0; i < 5; i++) {
+	                sharedResource.increment();
+	                System.out.println(Thread.currentThread().getName() + " - Count: " + sharedResource.getCount());
+	            }
+	            
+	            // Notify other waiting thread that it can proceed
+	            sharedResource.notify();
+	        }
+	    }
+	}
+
+
+Code 2:
+
+package anudip;
+
+public class Syncronization {
+	
+	    public static void main(String[] args) {
+	        SharedResource sharedResource = new SharedResource();
+
+	        // Create two threads that share the same resource
+	        Thread thread1 = new MyThread(sharedResource);
+	        Thread thread2 = new MyThread(sharedResource);
+
+	        // Start both threads
+	        thread1.start();
+	        thread2.start();
+
+	        try {
+	            // Wait for both threads to finish
+	            thread1.join();
+	            thread2.join();
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+
+	        // Print the final count after both threads complete
+	        System.out.println("Final Count: " + sharedResource.getCount());
+	    }
+	
+
+}
