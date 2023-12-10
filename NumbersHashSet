@@ -1,0 +1,58 @@
+/*  Write a Java program that demonstrates the following operations on a HashSet:
+     ● Create a HashSet of integers. 
+     ● Add the numbers 5, 10, 15, 20, and 25 to the set. 
+     ● Display the elements of the set. 
+     ● Check if the set contains the number 10. 
+     ● Remove the number 15 from the set. 
+     ● Display the size of the set.
+*/
+
+package anudip;
+
+import java.util.HashSet;
+
+import java.util.Set;
+
+public class NumbersHashSet {
+
+	public static void main(String[] args) {
+		
+		//Creating hash set that implements the set interface
+		
+		Set<Integer> intSet=new HashSet<>();
+		
+		//Adding elements to the set
+		
+		intSet.add(5);
+		intSet.add(10);
+		intSet.add(15);
+		intSet.add(20);
+		intSet.add(25);
+		intSet.add(5);//Adding duplicate element
+		
+		//Display the elements of the set
+		
+		System.out.println("Set elements: "+ intSet );
+		
+		//checking if the set contains the number 10 or not
+		
+		boolean contains10= intSet.contains(10);
+		System.out.println("contains 10 : "+contains10);
+		
+		//Removing the number 15 from the set
+		
+		boolean removed = intSet.remove(15);
+		System.out.println("Removed 15: "+removed);
+		
+		//Displaying the size of the set
+		
+		int size=intSet.size();
+		System.out.println("After removing 15 from the set ");
+		System.out.println("The remaining Set Size is: "+size);
+		
+		//Display the elements of the set
+		
+				System.out.println("Set elements: "+ intSet );
+				
+	}
+}
