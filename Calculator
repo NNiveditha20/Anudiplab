@@ -1,0 +1,100 @@
+/*  Create test methods for a Math Operations class that provides basic arithmetic operations. 
+    Write tests to cover addition, subtraction, multiplication, and division. 
+    Use parameterized tests to test different input values. */
+
+Code 1:
+
+Updating the Jupiter version (or) importing the dependencies in pom.xml
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>Project1</groupId>
+  <artifactId>Proj1</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <dependencies>
+	   <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>5.9.1</version>
+        <scope>test</scope>
+    </dependency>
+  </dependencies>
+  
+</project>
+
+
+Code 2:
+
+package Project;
+
+public class Calculator {
+
+	public int add(int a, int b)
+	{
+		return(a+b);
+	}
+	
+	public int sub(int c,int d)
+	{
+		return(c-d);
+	}
+	
+	public int mul(int e,int f)
+	{
+		return(e*f);
+	}
+	
+	public float div(float g,float h)
+	{
+		return(g/h);
+	}
+	
+}
+
+
+Code 3:
+
+package Project;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+
+public class CalculatorTest {
+	
+	@Test
+	public void testMethod()
+	{
+		Calculator calc = new Calculator();
+		
+		assertEquals(calc.add(10, 8), 18);	
+	}
+	
+	@Test
+	public void testMethod1()
+	{
+		Calculator calc=new Calculator();
+		
+		assertEquals(calc.sub(20, 17), 3);
+	}
+	
+	@Test
+	public void testMethod2()
+	{
+		Calculator calcu=new Calculator();
+		
+		assertEquals(calcu.mul(0, 9), 0);
+	}
+	
+	@Test
+	public void testMethod3()
+	{
+		Calculator calcul=new Calculator();
+		
+		assertEquals(calcul.div(20, 5), 4);
+	}
+	
+	
+
+}
+
