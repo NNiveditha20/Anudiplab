@@ -1,0 +1,57 @@
+/*
+    Write a Java program that calculates the sum of all even numbers present in an ArrayList of integers.
+*/
+
+package anudip;
+
+import java.util.ArrayList;
+
+
+public class EvenNumbersSum {
+	
+	public static void main(String[] args) {
+
+        // Creating an ArrayList of integers
+		
+        ArrayList<Integer> numbers = new ArrayList<>();
+        
+        // Add numbers to the ArrayList
+        numbers.add(1);
+        numbers.add(13);
+        numbers.add(334);
+        numbers.add(35);
+        numbers.add(533);
+        numbers.add(622);
+        numbers.add(98);
+        numbers.add(356);
+        numbers.add(456);
+        
+        //  sum of even numbers
+        
+        int sumOfEvens = calculateEvenSum(numbers);
+        
+        // Displaying result
+        
+        System.out.println("Sum of even numbers: " + sumOfEvens);
+    }
+
+    // Method to calculate the sum 
+	
+    public static int calculateEvenSum(ArrayList<Integer> numbers) {
+        int sum = 0;
+
+        for (int num : numbers) {
+        	
+            // Check if the number is even
+        	
+            if (num % 2 == 0) {
+            	
+                // Add the even number to the sum
+            	
+                sum += num;
+            }
+        }
+
+        return sum;
+    }
+}
