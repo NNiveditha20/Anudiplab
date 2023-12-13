@@ -1,0 +1,53 @@
+/*Read and store 'n' no. of elements to an arraylist using stream API, and display the same to user.
+From the above list filter and display only positive numbers.
+*/
+
+package anudip;
+
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
+public class PositiveNumber {
+
+	
+	
+	    public static void main(String[] args) {
+	        Scanner scanner = new Scanner(System.in);
+
+	        // Reading 'n' elements into an ArrayList using Stream API
+	        System.out.print("Enter the number of elements (n): ");
+	        int n = scanner.nextInt();
+	        scanner.nextLine(); // consume the newline character
+
+	        List<Integer> numbersList = new ArrayList<>();
+	        for (int i = 0; i < n; i++) {
+	            System.out.print("Enter element " + (i + 1) + ": ");
+	            int element = scanner.nextInt();
+	            numbersList.add(element);
+	        }
+
+	        // Display the original list
+	        System.out.println("Original List: " + numbersList);
+
+	        // Filter and display only positive numbers 
+	        List<Integer> positiveNumbers = numbersList.stream()
+	                .filter(num -> num > 0)
+	                .collect(Collectors.toList());
+
+	        System.out.println("Positive Numbers: " + positiveNumbers);
+
+	        // Display comments based on the filtered list
+	        if (positiveNumbers.isEmpty()) {
+	            System.out.println("No positive numbers found.");
+	        } else {
+	            System.out.println("Positive numbers are present in the list.");
+	        }
+
+	        //closing scanner class
+	        scanner.close();
+	    }
+
+}
