@@ -1,0 +1,29 @@
+/* Write a Java program that uses lambda expressions to manipulate strings. Create lambda expressions to perform the following operations on a given string:
+    ● Convert the string to uppercase
+    ● Convert the string to lowercase
+    ● Reverse the string
+*/
+
+package anudip;
+import java.util.function.Function;
+public class ManipulateString {
+public static void main(String[] args) {
+String inputString = "Hello, Lambda Expressions!";
+
+// Convert the string to uppercase
+String resultUppercase = manipulateString(inputString, s -> s.toUpperCase());
+System.out.println("Uppercase: " + resultUppercase);
+
+// Convert the string to lowercase
+String resultLowercase = manipulateString(inputString, s -> s.toLowerCase());
+System.out.println("Lowercase: " + resultLowercase);
+
+// Reverse the string
+String resultReverse = manipulateString(inputString, s -> new
+StringBuilder(s).reverse().toString());
+System.out.println("Reversed: " + resultReverse);
+}
+private static String manipulateString(String input, Function<String, String> operation) {
+return operation.apply(input);
+}
+}
