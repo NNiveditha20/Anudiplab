@@ -1,0 +1,40 @@
+/*  Write a Java program that demonstrates the use of method references for static methods. Create a functional interface and use a method reference to call a static method that
+    calculates the square of a number. 
+*/
+
+
+package anudip;
+public class Method {
+
+@FunctionalInterface
+interface SquareCalculator {
+int calculateSquare(int number);
+}
+
+class MathUtils {
+static int square(int x) {
+return x * x;
+}
+}
+}
+
+********************************************
+
+package anudip;
+import anudip.Method.MathUtils;
+import anudip.Method.SquareCalculator;
+
+public class Methodreference {
+public static void main(String[] args) {
+
+// Using a lambda expression
+SquareCalculator lambdaCalculator = (number) -> MathUtils.square(number);
+int resultLambda = lambdaCalculator.calculateSquare(5);
+System.out.println("Using Lambda: " + resultLambda);
+
+// Using a method reference
+SquareCalculator referenceCalculator = MathUtils::square;
+int resultReference = referenceCalculator.calculateSquare(5);
+System.out.println("Using Method Reference: " + resultReference);
+}
+}
