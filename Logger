@@ -1,0 +1,53 @@
+/* Create a simple Singleton Pattern for a logging class.
+   Implement a Logger class that logs messages. 
+   Ensure that only one instance of the Logger class can be created, and all log messages are written to a single log file. 
+   Write a program to demonstrate the usage of the Logger class to log messages from multiple parts.
+*/
+
+package anudip;
+
+public class Logger {
+
+public  static Logger log = new Logger();
+	
+	private Logger()
+	{
+		System.out.println("Logger instance is created.");
+	}
+	
+	public static Logger createobject()
+	{
+		return log;
+	}
+	
+	public void loggerInmsg()
+	{
+		System.out.println("call login registered");
+	}
+	
+	public void loggerOutmsg()
+	{
+		System.out.println("call logout registered");
+	}
+}
+
+************************************************
+
+package anudip;
+
+public class SingletonLogger {
+
+	public static void main(String[] args)
+	{
+		//user1
+		Logger log = Logger.createobject();
+		log.loggerInmsg();
+		log.loggerOutmsg();
+		
+		//user2
+		Logger log1 = Logger.createobject();
+		log1.loggerInmsg();
+		log1.loggerOutmsg();
+	
+	}	
+}
