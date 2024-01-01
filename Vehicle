@@ -1,0 +1,111 @@
+// Write a program in java to Illustrate Abstract Factory method pattern.
+
+package anudip;
+
+public interface Vehicle {
+	void startEngine();
+    void stopEngine();
+}
+
+***********************************
+
+package anudip;
+
+public class Car implements Vehicle {
+    @Override
+    public void startEngine() {
+        System.out.println("Car engine started.");
+    }
+
+    @Override
+    public void stopEngine() {
+        System.out.println("Car engine stopped.");
+    }
+}
+
+***************************************
+
+package anudip;
+
+public class Bike implements Vehicle {
+	@Override
+    public void startEngine() {
+        System.out.println("Bike engine started.");
+    }
+
+    @Override
+    public void stopEngine() {
+        System.out.println("Bike engine stopped.");
+    }
+}
+
+****************************************
+
+package anudip;
+
+public interface VehicleAbstractFactory {
+	Vehicle createVehicle();
+}
+
+***************************************
+
+package anudip;
+
+public class CarFactory implements VehicleAbstractFactory {
+	@Override
+    public Vehicle createVehicle() {
+        return new Car();
+    }
+}
+
+***************************************
+
+package anudip;
+
+public class BikeFactory implements VehicleAbstractFactory {
+	@Override
+    public Vehicle createVehicle() {
+        return new Bike();
+    }
+
+}
+
+*****************************************
+
+package anudip;
+
+public class BikeFactory implements VehicleAbstractFactory {
+	@Override
+    public Vehicle createVehicle() {
+        return new Bike();
+    }
+}
+
+*****************************************
+
+package anudip;
+
+public class AbstractFactoryPatternExample {
+	
+	public static void main(String[] args) {
+        // User input determines the type of vehicle to create
+        String vehicleType = "Car"; // or "Bike"
+
+        // Create the appropriate abstract factory based on user input
+        VehicleAbstractFactory factory;
+        if ("Car".equalsIgnoreCase(vehicleType)) {
+            factory = new CarFactory();
+        } else if ("Bike".equalsIgnoreCase(vehicleType)) {
+            factory = new BikeFactory();
+        } else {
+            throw new IllegalArgumentException("Invalid vehicle type.");
+        }
+
+        // Use the abstract factory to create the vehicle
+        Vehicle vehicle = factory.createVehicle();
+
+        // Perform operations on the vehicle
+        vehicle.startEngine();
+        vehicle.stopEngine();
+    }
+}
