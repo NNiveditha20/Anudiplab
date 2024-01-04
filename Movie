@@ -1,0 +1,131 @@
+/* Home Theater System: Create a home theater system using the Facade Pattern. 
+ * Define classes for various components like DVD player, amplifier, projector, and screen. 
+ * Implement a Home Theater Facade class that provides a simplified interface to control the entire home theater system, including turning it on, playing a movie, and turning it off.
+ */
+
+package anudip;
+
+public class DVDPlayer {
+public void on() {
+System.out.println("DVD Player is on");
+}
+
+public void play(String movie) {
+System.out.println("Playing movie: " + movie);
+}
+
+public void off() {
+System.out.println("DVD Player is off");
+}
+}
+
+***********************************************
+
+package anudip;
+
+public class Amplifier {
+
+public void on() {
+System.out.println("Amplifier is on");
+}
+
+public void setSurroundSound() {
+System.out.println("Amplifier is set to surround sound");
+}
+
+public void off() {
+System.out.println("Amplifier is off");
+}
+}
+
+************************************************
+
+package anudip;
+
+public class Projector {
+public void on() {
+System.out.println("Projector is on");
+}
+
+public void setInput(DVDPlayer dvdPlayer) {
+System.out.println("Projector is set to DVD Player input");
+}
+
+public void off() {
+System.out.println("Projector is off");
+}
+}
+
+***************************************************
+
+package anudip;
+
+public class Screen {
+
+public void down() {
+System.out.println("Screen is down");
+}
+
+public void up() {
+System.out.println("Screen is up");
+}
+}
+
+*****************************************************
+
+package anudip;
+
+public class HomeTheaterFacade {
+
+private DVDPlayer dvdPlayer;
+private Amplifier amplifier;
+private Projector projector;
+private Screen screen;
+
+public HomeTheaterFacade(DVDPlayer dvdPlayer, Amplifier amplifier, Projector projector, Screen screen) {
+this.dvdPlayer = dvdPlayer;
+this.amplifier = amplifier;
+this.projector = projector;
+this.screen = screen;
+}
+
+public void watchMovie(String movie) {
+System.out.println("Get ready to watch a movie...");
+screen.down();
+projector.on();
+projector.setInput(dvdPlayer);
+amplifier.on();
+amplifier.setSurroundSound();
+dvdPlayer.on();
+dvdPlayer.play(movie);
+}
+
+public void endMovie() {
+System.out.println("Shutting down the movie...");
+screen.up();
+projector.off();
+amplifier.off();
+dvdPlayer.off();
+}
+}
+
+*******************************************************
+
+package anudip;
+
+public class Movie {
+public static void main(String[] args) {
+DVDPlayer dvdPlayer = new DVDPlayer();
+Amplifier amplifier = new Amplifier();
+Projector projector = new Projector();
+Screen screen = new Screen();
+
+HomeTheaterFacade homeTheater = new HomeTheaterFacade(dvdPlayer, amplifier, projector, screen);
+
+// Watch a movie
+homeTheater.watchMovie("Inception");
+
+// End the movie
+homeTheater.endMovie();
+}
+}
