@@ -1,0 +1,68 @@
+/* Create a Java class called MinStack of Integers that supports standard stack operations (push, pop, top, and isEmpty) 
+ * and also provides a getMin method that returns the minimum element in the stack. 
+ * (Hints: Keep another stack that will hold the minimum value on the top of the stack.)
+ */
+
+package datastructre;
+import java.util.Stack;
+
+public class MinStack {
+private Stack<Integer> mainStack;
+private Stack<Integer> minStack;
+
+public MinStack() {
+mainStack = new Stack<>();
+minStack = new Stack<>();
+}
+
+public void push(int value) {
+mainStack.push(value);
+
+if (minStack.isEmpty() || value <= minStack.peek()) {
+minStack.push(value);
+}
+}
+
+public void pop() {
+if (!mainStack.isEmpty()) {
+int poppedValue = mainStack.pop();
+if (poppedValue == minStack.peek()) {
+minStack.pop();
+}
+}
+}
+
+public int top() {
+if (!mainStack.isEmpty()) {
+return mainStack.peek();
+}
+throw new IllegalStateException("Stack is empty");
+}
+
+public int getMin() {
+if (!minStack.isEmpty()) {
+return minStack.peek();
+}
+throw new IllegalStateException("Stack is empty");
+}
+
+public boolean isEmpty() {
+return mainStack.isEmpty();
+}
+
+public static void main(String[] args) {
+MinStack minStack = new MinStack();
+minStack.push(3); //pushing element 3 into the stack
+minStack.push(5); //pushing element 5 into the stack
+System.out.println("Top element: " + minStack.top());        // 5
+System.out.println("Minimum element: " + minStack.getMin());  // 3
+
+minStack.push(2); //pushing element 2 into the stack
+minStack.push(1); //pushing element 1 into the stack
+System.out.println("Top element: " + minStack.top());          // 2
+System.out.println("Minimum element: " + minStack.getMin());   // 1
+minStack.pop();
+System.out.println("Top element after pop: " + minStack.top());           // 2
+System.out.println("Minimum element after pop: " + minStack.getMin());    // 2
+}
+}
