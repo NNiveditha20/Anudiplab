@@ -1,0 +1,98 @@
+//Create an Employee table with empid, empname, job, deptno, salary, mgr_id, hiredate 
+// by adding not null for all the columns and unique for empid.
+
+mysql> create database database1;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show database
++--------------------+
+| Database           |
++--------------------+
+| database1          |
+| information_schema |
+| mysql              |
+| performance_schema |
+| person             |
+| sys                |
++--------------------+
+6 rows in set (0.12 sec)
+
+mysql> use database1;
+Database changed
+
+mysql> create table Employee(empid int unique not null,empname varchar(30) not null ,job varchar(20) not null,
+deptno int not null,salary int not null,mgr_id int not null,hiredate date not null);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc Employee;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| empid    | int         | NO   | PRI | NULL    |       |
+| empname  | varchar(30) | NO   |     | NULL    |       |
+| job      | varchar(20) | NO   |     | NULL    |       |
+| deptno   | int         | NO   |     | NULL    |       |
+| salary   | int         | NO   |     | NULL    |       |
+| mgr_id   | int         | NO   |     | NULL    |       |
+| hiredate | date        | NO   |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+7 rows in set (0.06 sec)
+
+
+// 1. write the query to create and insert records.
+
+mysql> INSERT INTO Employee VALUES (1001, 'MILLER', 'MANAGER', 10, 25000, 1000, CURDATE());
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO Employee VALUES (1002, 'anjali', 'professor', 21, 30000, 1624, CURDATE());
+Query OK, 1 row affected (0.04 sec)
+
+mysql> INSERT INTO Employee VALUES (1003, 'shyam', 'teacher', 25, 35000, 5624, CURDATE());
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Employee VALUES (1004, 'rahul', 'software engineer', 29, 30000, 5424, CURDATE());
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO Employee VALUES (1006, 'sreeja', 'developer', 65, 29000, 2524, CURDATE());
+Query OK, 1 row affected (0.00 sec)
+
+
+// 2. query to view all the records from the table.
+
+mysql> select * from employee;
++-------+---------+-------------------+--------+--------+--------+------------+
+| empid | empname | job               | deptno | salary | mgr_id | hiredate   |
++-------+---------+-------------------+--------+--------+--------+------------+
+|  1001 | MILLER  | MANAGER           |     10 |  25000 |   1000 | 2024-01-08 |
+|  1002 | anjali  | professor         |     21 |  30000 |   1624 | 2024-01-11 |
+|  1003 | shyam   | teacher           |     25 |  35000 |   5624 | 2024-01-11 |
+|  1004 | rahul   | software engineer |     29 |  30000 |   5424 | 2024-01-11 |
+|  1006 | sreeja  | developer         |     65 |  29000 |   2524 | 2024-01-11 |
++-------+---------+-------------------+--------+--------+--------+------------+
+5 rows in set (0.01 sec)
+	 
+
+// 3. query to count no. of records from the table.
+
+mysql> select count(*) from Employee;
++----------+
+| count(*) |
++----------+
+|        5 |
++----------+
+1 row in set (0.03 sec)
+
+
+// 4. query to view only empid, empnam, job and salary of all the employees.
+
+mysql> SELECT EMPID, EMPNAME, JOB, SALARY FROM EMPLOYEE;
++-------+---------+-------------------+--------+
+| EMPID | EMPNAME | JOB               | SALARY |
++-------+---------+-------------------+--------+
+|  1001 | MILLER  | MANAGER           |  25000 |
+|  1002 | anjali  | professor         |  30000 |
+|  1003 | shyam   | teacher           |  35000 |
+|  1004 | rahul   | software engineer |  30000 |
+|  1006 | sreeja  | developer         |  29000 |
++-------+---------+-------------------+--------+
+5 rows in set (0.00 sec)
