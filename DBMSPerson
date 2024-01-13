@@ -1,0 +1,130 @@
+create a table name :  person
+table structure : p_nid  int not null / unique,p_name varchar(30)  not null,p_address text.
+
+mysql> create database person;
+Query OK, 1 row affected (0.10 sec)
+
+mysql> use person;
+Database changed
+
+mysql> create table person(pid int not null unique,pname varchar(30) not null,paddress text);
+Query OK, 0 rows affected (0.17 sec)
+
+mysql> desc person;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| pid      | int         | NO   | PRI | NULL    |       |
+| pname    | varchar(30) | YES  |     | NULL    |       |
+| paddress | Text        | NO   |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select * from person;
+Empty set (0.01 sec)
+
+
+1. insert 4 records to the table ?
+
+mysql> INSERT INTO person VALUES
+-> (1, 'Sreeja', 'hyderabad'), 
+-> (2, 'Anjali', 'ongole'), 
+-> (3, 'Nivi', 'Vizag'), 
+-> (4, 'Ganesh', 'banglore');
+Query OK, 4 rows af ected (0.01 sec)
+Records: 4 Duplicates: 0 Warnings: 0
+
+mysql> select * from person;
++-----+--------+-----------+
+| pid | pname  | paddress  |
++-----+--------+-----------+
+|   1 | Sreeja | hyderabad |
+|   2 | Anjali | ongole    |
+|   3 | Nivi   | Vizag     |
+|   4 | Ganesh | banglore  |
++-----+--------+-----------+
+4 rows in set (0.01 sec)
+
+
+2. add a new column to the table  p_age int.
+
+mysql> alter table person add column page int;
+Query OK, 0 rows af ected (0.06 sec)
+Records: 0 Duplicates: 0 Warnings: 0
+
+mysql> select* from person;
++-----+--------+-----------+------+
+| pid | pname  | paddress  | page |
++-----+--------+-----------+------+
+|   1 | Sreeja | hyderabad | NULL |
+|   2 | Anjali | ongole    | NULL |
+|   3 | Nivi   | Vizag     | NULL |
+|   4 | Ganesh | banglore  | NULL |
++-----+--------+-----------+------+
+4 rows in set (0.01 sec)
+
+
+3. update the age column of existing records.
+
+mysql> update person set page=25 where pid =1;
+Query OK, 1 row af ected (0.01 sec)
+Rows matched: 1 Changed: 1 Warnings: 0
+
+mysql> update person set page=22 where pid =2;
+Query OK, 1 row af ected (0.00 sec)
+Rows matched: 1 Changed: 1 Warnings: 0
+
+mysql> update person set page=28 where pid =3;
+Query OK, 1 row af ected (0.00 sec)
+Rows matched: 1 Changed: 1 Warnings: 0
+
+mysql> update person set page=23 where pid =4;
+Query OK, 1 row af ected (0.00 sec)
+Rows matched: 1 Changed: 1 warning: 0
+
+mysql> select* from person;
++-----+--------+-----------+------+
+| pid | pname  | paddress  | page |
++-----+--------+-----------+------+
+|   1 | Sreeja | hyderabad |   25 |
+|   2 | Anjali | ongole    |   22 |
+|   3 | Nivi   | Vizag     |   28 |
+|   4 | Ganesh | banglore  |   23 |
++-----+--------+-----------+------+
+4 rows in set (0.01 sec)
+
+4. extended the p_name column size to 50.
+
+mysql> alter table person modify column pname varchar(50);
+Query OK, 0 rows af ected (0.13 sec)
+Records: 0 Duplicates: 0 Warnings: 0
+
+mysql> desc person;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| pid      | int         | NO   | PRI | NULL    |       |
+| pname    | varchar(50) | YES  |     | NULL    |       |
+| paddress | Text        | YES  |     | NULL    |       |
+| page     | int         | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+
+5. add not null constraint for p_age, p_address columns.
+
+mysql> alter table person modify column page int not null;
+Query OK, 0 rows af ected (0.10 sec)
+Records: 0 Duplicates: 0 Warnings: 0
+
+mysql> alter table person modify column paddress varchar(50) not null;
+Query OK, 4 rows af ected (0.08 sec)
+Records: 4 Duplicates: 0 Warnings: 0
+
+mysql> desc person;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| pid      | int         | NO   | PRI | NULL    |       |
+| pname    | varchar(50) | YES  |     | NULL    |       |
+| paddress | varchar(50) | NO   |     | NULL    |       |
+| page     | int         | NO   |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
